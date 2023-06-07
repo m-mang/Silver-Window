@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv0cspqo5kmjf"]
+
+[ext_resource type="StyleBox" uid="uid://d1mx1udb5jm2d" path="res://themes/Styleboxes/window_panel_container.tres" id="1_mqg4x"]
+[ext_resource type="Script" path="res://picture_container.gd" id="2_ff4pw"]
+
+[node name="ExamplePictureWindow" type="Control" groups=["graph_nodes"]]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+
+[node name="PictureContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 200.0
+offset_right = 1004.0
+offset_bottom = 404.0
+theme_override_styles/panel = ExtResource("1_mqg4x")
+script = ExtResource("2_ff4pw")
+
+[node name="PictureRect" type="TextureRect" parent="PictureContainer"]
+layout_mode = 2
+stretch_mode = 5
+
+[connection signal="gui_input" from="PictureContainer" to="PictureContainer" method="_on_gui_input"]

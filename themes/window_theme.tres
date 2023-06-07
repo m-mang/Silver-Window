@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bqqjjofo6o1t7"]
+
+[ext_resource type="FontFile" uid="uid://clgsijh6awq70" path="res://fonts/Dynamic/BIZ_UDGothic/BIZUDGothic-Regular.ttf" id="1_k3avd"]
+
+[resource]
+RichTextLabel/colors/default_color = Color(0.694118, 0.694118, 0.694118, 1)
+RichTextLabel/constants/line_separation = 16
+RichTextLabel/font_sizes/normal_font_size = 52
+RichTextLabel/fonts/normal_font = ExtResource("1_k3avd")

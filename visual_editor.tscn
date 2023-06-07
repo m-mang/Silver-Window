@@ -1,0 +1,124 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8nkpfrmryfyo"]
+
+[ext_resource type="Script" path="res://visual_editor.gd" id="1_pdg57"]
+
+[node name="GraphEdit" type="GraphEdit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+right_disconnects = true
+script = ExtResource("1_pdg57")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+top_level = true
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -660.0
+offset_top = 10.0
+offset_right = 920.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
+metadata/_edit_group_ = true
+
+[node name="DialogueNodeButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "New Dialogue Node"
+
+[node name="PictureNodeButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "New Picture Node"
+
+[node name="RunButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Save JSON"
+
+[node name="LoadJSON" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Load JSON"
+
+[node name="ClearConnections" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Clear Connections"
+
+[node name="ClearNodes" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Clear Nodes"
+
+[node name="QuitButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="TestButton" type="Button" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Test"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Current File:"
+
+[node name="Label2" type="Label" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "New File"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+size = Vector2i(700, 500)
+filters = PackedStringArray("*.json")
+
+[node name="LoadFileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+size = Vector2i(700, 500)
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.json")
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+size = Vector2i(280, 120)
+dialog_text = "Warning! All nodes will be cleared.
+Continue?"
+
+[node name="ClearConnectionsDialog" type="ConfirmationDialog" parent="."]
+size = Vector2i(327, 120)
+dialog_text = "Warning! All connections will be cleared.
+Continue?"
+
+[node name="LoadErrorDialog" type="AcceptDialog" parent="."]
+size = Vector2i(213, 120)
+dialog_text = "Error: Incompatible JSON.
+Unable to load."
+
+[node name="QuitConfirmationDialog" type="ConfirmationDialog" parent="."]
+size = Vector2i(300, 120)
+dialog_text = "Exit Visual Editor?"
+
+[node name="SaveErrorDialog" type="AcceptDialog" parent="."]
+size = Vector2i(211, 100)
+dialog_text = "No dialogue connections."
+
+[connection signal="connection_request" from="." to="." method="_on_connection_request"]
+[connection signal="disconnection_request" from="." to="." method="_on_disconnection_request"]
+[connection signal="pressed" from="HBoxContainer/DialogueNodeButton" to="." method="_on_dialogue_node_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PictureNodeButton" to="." method="_on_picture_node_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/RunButton" to="." method="_on_run_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/LoadJSON" to="." method="_on_load_json_pressed"]
+[connection signal="pressed" from="HBoxContainer/ClearConnections" to="." method="_on_clear_connections_pressed"]
+[connection signal="pressed" from="HBoxContainer/ClearNodes" to="." method="_on_clear_nodes_pressed"]
+[connection signal="pressed" from="HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TestButton" to="." method="_on_test_button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="file_selected" from="LoadFileDialog" to="." method="_on_load_file_dialog_file_selected"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="confirmed" from="ClearConnectionsDialog" to="." method="_on_clear_connections_dialog_confirmed"]
+[connection signal="confirmed" from="QuitConfirmationDialog" to="." method="_on_quit_confirmation_dialog_confirmed"]

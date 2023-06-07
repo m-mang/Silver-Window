@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=3 uid="uid://cjg2fltbjtmuh"]
+
+[ext_resource type="Theme" uid="uid://bqqjjofo6o1t7" path="res://themes/window_theme.tres" id="1_u48r7"]
+[ext_resource type="Script" path="res://expand_shrink_container.gd" id="2_0pqxb"]
+[ext_resource type="StyleBox" uid="uid://d1mx1udb5jm2d" path="res://themes/Styleboxes/window_panel_container.tres" id="2_5gfxo"]
+[ext_resource type="Script" path="res://dialogue.gd" id="4_hdacr"]
+[ext_resource type="Script" path="res://box_wipe.gd" id="5_ferfl"]
+[ext_resource type="Script" path="res://text_cursor.gd" id="5_hr4a3"]
+[ext_resource type="Script" path="res://underline.gd" id="6_qpe7a"]
+[ext_resource type="Script" path="res://hollow_box.gd" id="7_xv4ga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfd8j"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1yfhu"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ow3fi"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0627451)
+draw_center = false
+border_width_left = 1
+border_width_top = 3
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_top = 4.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0fvb"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_color = Color(0.788235, 0.788235, 0.788235, 1)
+
+[node name="DialogueWindow" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_u48r7")
+
+[node name="ExpandShrinkContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 255.0
+offset_bottom = 72.0
+script = ExtResource("2_0pqxb")
+
+[node name="DialogueContainer" type="PanelContainer" parent="ExpandShrinkContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_5gfxo")
+
+[node name="DialoguePadding" type="MarginContainer" parent="ExpandShrinkContainer/DialogueContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 5
+
+[node name="Dialogue" type="RichTextLabel" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding"]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Hello World."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+visible_characters_behavior = 1
+script = ExtResource("4_hdacr")
+dialogue_width = 100
+
+[node name="Underline" type="ColorRect" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue"]
+layout_mode = 0
+script = ExtResource("6_qpe7a")
+
+[node name="TextCursor" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue"]
+layout_mode = 0
+offset_right = 2.0
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wfd8j")
+script = ExtResource("5_hr4a3")
+
+[node name="TextCursor2" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue/TextCursor"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1yfhu")
+
+[node name="HollowBoxControl" type="Control" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue"]
+anchors_preset = 0
+script = ExtResource("7_xv4ga")
+
+[node name="HollowBox" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue/HollowBoxControl"]
+layout_mode = 2
+offset_right = 2.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow3fi")
+
+[node name="HollowBox2" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue/HollowBoxControl"]
+visible = false
+layout_mode = 2
+offset_right = 2.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow3fi")
+
+[node name="HollowBox3" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue/HollowBoxControl"]
+visible = false
+layout_mode = 2
+offset_right = 2.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow3fi")
+
+[node name="HollowBox4" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue/HollowBoxControl"]
+visible = false
+layout_mode = 2
+offset_right = 2.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow3fi")
+
+[node name="HollowBox5" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue/HollowBoxControl"]
+visible = false
+layout_mode = 2
+offset_right = 2.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow3fi")
+
+[node name="HollowBox6" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue/HollowBoxControl"]
+visible = false
+layout_mode = 2
+offset_right = 2.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow3fi")
+
+[node name="HollowBox7" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue/HollowBoxControl"]
+visible = false
+layout_mode = 2
+offset_right = 2.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow3fi")
+
+[node name="HollowBox8" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue/HollowBoxControl"]
+visible = false
+layout_mode = 2
+offset_right = 2.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow3fi")
+
+[node name="HollowBox9" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue/HollowBoxControl"]
+visible = false
+layout_mode = 2
+offset_right = 2.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ow3fi")
+
+[node name="BoxWipeContainer" type="MarginContainer" parent="ExpandShrinkContainer/DialogueContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("5_ferfl")
+wipe_speed = 0.4
+
+[node name="BoxWipe" type="PanelContainer" parent="ExpandShrinkContainer/DialogueContainer/BoxWipeContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g0fvb")
+
+[connection signal="expanded" from="ExpandShrinkContainer" to="ExpandShrinkContainer/DialogueContainer/DialoguePadding/Dialogue" method="_on_expand_shrink_container_expanded"]

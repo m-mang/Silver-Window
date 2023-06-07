@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://mc36xkxw8pom"]
+
+[ext_resource type="Script" path="res://expand_shrink_picture.gd" id="1_hci2j"]
+[ext_resource type="StyleBox" uid="uid://d1mx1udb5jm2d" path="res://themes/Styleboxes/window_panel_container.tres" id="2_le1ui"]
+[ext_resource type="Texture2D" uid="uid://cwa450g4v34vx" path="res://assets/godot_icon_500_blue.jpg" id="3_e5luo"]
+
+[node name="PictureWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExpandShrinkContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 504.0
+offset_bottom = 504.0
+script = ExtResource("1_hci2j")
+
+[node name="PictureContainer" type="PanelContainer" parent="ExpandShrinkContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_le1ui")
+
+[node name="Control" type="Control" parent="ExpandShrinkContainer/PictureContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="PictureRect" type="TextureRect" parent="ExpandShrinkContainer/PictureContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_e5luo")
+stretch_mode = 5

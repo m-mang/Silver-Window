@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dw3ar75l3drun"]
+
+[ext_resource type="StyleBox" uid="uid://d1mx1udb5jm2d" path="res://themes/Styleboxes/window_panel_container.tres" id="1_staat"]
+[ext_resource type="FontFile" uid="uid://cagqx7tihbohl" path="res://fonts/Dynamic/Zen_Old_Mincho/ZenOldMincho-Regular.ttf" id="2_yrkef"]
+
+[resource]
+PanelContainer/styles/panel = ExtResource("1_staat")
+RichTextLabel/colors/default_color = Color(0.823529, 0.788235, 0.698039, 1)
+RichTextLabel/constants/line_separation = 1
+RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/fonts/normal_font = ExtResource("2_yrkef")

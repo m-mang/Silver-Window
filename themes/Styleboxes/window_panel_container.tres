@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://d1mx1udb5jm2d"]
+
+[resource]
+resource_local_to_scene = true
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.521569, 0, 0.00784314, 1)
+shadow_color = Color(0, 0, 0, 0.188235)
+shadow_size = 2
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false

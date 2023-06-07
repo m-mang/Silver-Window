@@ -1,0 +1,210 @@
+[gd_scene load_steps=16 format=3 uid="uid://65n4ihxxbhv7"]
+
+[ext_resource type="Script" path="res://main1.gd" id="1_655ba"]
+[ext_resource type="Texture2D" uid="uid://bwbambqniejee" path="res://resources/background_gradient_green-yellow.tres" id="2_qnmt8"]
+[ext_resource type="FontFile" uid="uid://bbx168m2dyg16" path="res://fonts/Dynamic/DotGothic16/DotGothic16-Regular.ttf" id="2_suoma"]
+[ext_resource type="LabelSettings" uid="uid://cikrp01tdn4pj" path="res://themes/Label Settings/name_label.tres" id="3_jv2oo"]
+[ext_resource type="Texture2D" uid="uid://jyta7141wq7t" path="res://resources/background_gradient_blue-purple.tres" id="3_nwg1j"]
+[ext_resource type="Texture2D" uid="uid://cr1qcaj4a4ewe" path="res://resources/background_gradient_pink-blue.tres" id="4_6nb12"]
+[ext_resource type="Script" path="res://speaker_name.gd" id="4_sy8tf"]
+[ext_resource type="Script" path="res://speaker_frame.gd" id="5_52av7"]
+[ext_resource type="StyleBox" uid="uid://ck6mgaru0jag8" path="res://themes/Styleboxes/Lines/location_style_box_line.tres" id="6_bt542"]
+[ext_resource type="FontFile" uid="uid://dqfmkx1mxfctr" path="res://fonts/Dynamic/Kosugi_Maru/KosugiMaru-Regular.ttf" id="7_80mgx"]
+[ext_resource type="LabelSettings" uid="uid://c4li45yyalu01" path="res://themes/Label Settings/location_label_settings.tres" id="8_pamnr"]
+[ext_resource type="Script" path="res://frame_line_control.gd" id="9_unn2k"]
+[ext_resource type="StyleBox" uid="uid://jn7t0k3ecnj" path="res://themes/Styleboxes/Lines/frame_line_LR.tres" id="10_jepii"]
+[ext_resource type="StyleBox" uid="uid://cj16640xdv12l" path="res://themes/Styleboxes/Lines/frame_line_TB.tres" id="11_lviex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3lrm"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 0.901961)
+
+[node name="Main1" type="Node"]
+script = ExtResource("1_655ba")
+
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qnmt8")
+
+[node name="Background2" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nwg1j")
+
+[node name="Background3" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6nb12")
+
+[node name="StartDelayTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="SpeakerName" type="Label" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+offset_right = 64.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(0.858824, 0.858824, 0.858824, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.568627)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_suoma")
+theme_override_font_sizes/font_size = 48
+text = "Name"
+label_settings = ExtResource("3_jv2oo")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_sy8tf")
+
+[node name="NameTimer" type="Timer" parent="SpeakerName"]
+one_shot = true
+
+[node name="SpeakerFrame" type="PanelContainer" parent="."]
+visible = false
+z_index = 2
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_k3lrm")
+script = ExtResource("5_52av7")
+
+[node name="HeaderContainer" type="HBoxContainer" parent="."]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -276.0
+offset_top = 20.0
+offset_right = 276.0
+offset_bottom = 60.0
+grow_horizontal = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HeaderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = ExtResource("6_bt542")
+
+[node name="Location1" type="Label" parent="HeaderContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_80mgx")
+theme_override_font_sizes/font_size = 24
+text = "Location"
+label_settings = ExtResource("8_pamnr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="HeaderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = ExtResource("6_bt542")
+
+[node name="Location2" type="Label" parent="HeaderContainer"]
+layout_mode = 2
+text = "Location"
+label_settings = ExtResource("8_pamnr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="HeaderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = ExtResource("6_bt542")
+
+[node name="Location3" type="Label" parent="HeaderContainer"]
+layout_mode = 2
+text = "Location"
+label_settings = ExtResource("8_pamnr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator4" type="VSeparator" parent="HeaderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = ExtResource("6_bt542")
+
+[node name="Chapter" type="Label" parent="HeaderContainer"]
+layout_mode = 2
+text = "Chapter"
+label_settings = ExtResource("8_pamnr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator5" type="VSeparator" parent="HeaderContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = ExtResource("6_bt542")
+
+[node name="FrameLineControl" type="Control" parent="."]
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_unn2k")
+
+[node name="FrameLineL" type="PanelContainer" parent="FrameLineControl"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("10_jepii")
+
+[node name="FrameLineR" type="PanelContainer" parent="FrameLineControl"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("10_jepii")
+
+[node name="FrameLineT" type="PanelContainer" parent="FrameLineControl"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("11_lviex")
+
+[node name="FrameLineB" type="PanelContainer" parent="FrameLineControl"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("11_lviex")
+
+[connection signal="timeout" from="SpeakerName/NameTimer" to="SpeakerName" method="_on_name_timer_timeout"]
+[connection signal="frame_lines_finished" from="FrameLineControl" to="SpeakerName" method="_on_frame_line_control_frame_lines_finished"]

@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://tidyay0jih7p"]
+
+[ext_resource type="Theme" uid="uid://bqqjjofo6o1t7" path="res://themes/window_theme.tres" id="1_o10ha"]
+[ext_resource type="Script" path="res://example_window.gd" id="2_s12fq"]
+[ext_resource type="StyleBox" uid="uid://d1mx1udb5jm2d" path="res://themes/Styleboxes/window_panel_container.tres" id="2_ugu44"]
+[ext_resource type="Script" path="res://example_paired.gd" id="4_se3xw"]
+[ext_resource type="Script" path="res://example_speaker_frame.gd" id="5_tleu6"]
+[ext_resource type="LabelSettings" uid="uid://cikrp01tdn4pj" path="res://themes/Label Settings/name_label.tres" id="6_muwa1"]
+[ext_resource type="Script" path="res://example_name.gd" id="7_em4up"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jspt3"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Control" groups=["graph_nodes"]]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_o10ha")
+
+[node name="ExampleWindow" type="PanelContainer" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 960.0
+offset_top = 800.0
+offset_right = 1160.0
+offset_bottom = 878.0
+theme_override_styles/panel = ExtResource("2_ugu44")
+script = ExtResource("2_s12fq")
+
+[node name="MarginContainer" type="MarginContainer" parent="ExampleWindow"]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 42
+theme_override_constants/margin_bottom = 5
+
+[node name="ExampleText" type="RichTextLabel" parent="ExampleWindow/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ExamplePaired" type="PanelContainer" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 825.0
+offset_top = 753.0
+offset_right = 843.0
+offset_bottom = 757.0
+theme_override_styles/panel = ExtResource("2_ugu44")
+script = ExtResource("4_se3xw")
+
+[node name="TextureRect" type="TextureRect" parent="ExamplePaired"]
+layout_mode = 2
+stretch_mode = 4
+
+[node name="ExampleFrame" type="PanelContainer" parent="."]
+visible = false
+top_level = true
+z_index = 1
+layout_mode = 0
+offset_left = 932.0
+offset_top = 521.0
+offset_right = 1032.0
+offset_bottom = 621.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jspt3")
+script = ExtResource("5_tleu6")
+
+[node name="ExampleName" type="Label" parent="."]
+visible = false
+top_level = true
+z_index = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 934.0
+offset_top = 443.0
+offset_right = 1030.0
+offset_bottom = 516.0
+mouse_filter = 0
+text = "Name"
+label_settings = ExtResource("6_muwa1")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_em4up")
+
+[connection signal="gui_input" from="ExampleWindow" to="ExampleWindow" method="_on_gui_input"]
+[connection signal="gui_input" from="ExamplePaired" to="ExamplePaired" method="_on_gui_input"]
+[connection signal="gui_input" from="ExampleFrame" to="ExampleFrame" method="_on_gui_input"]
+[connection signal="gui_input" from="ExampleName" to="ExampleName" method="_on_gui_input"]

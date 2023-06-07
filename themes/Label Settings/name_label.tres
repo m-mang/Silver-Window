@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cikrp01tdn4pj"]
+
+[ext_resource type="FontFile" uid="uid://bbx168m2dyg16" path="res://fonts/Dynamic/DotGothic16/DotGothic16-Regular.ttf" id="1_ieqq7"]
+
+[resource]
+font = ExtResource("1_ieqq7")
+font_size = 48
+font_color = Color(0.858824, 0.858824, 0.858824, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.568627)

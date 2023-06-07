@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c4li45yyalu01"]
+
+[ext_resource type="FontFile" uid="uid://dqfmkx1mxfctr" path="res://fonts/Dynamic/Kosugi_Maru/KosugiMaru-Regular.ttf" id="1_fqkar"]
+
+[resource]
+font = ExtResource("1_fqkar")
+font_size = 24
