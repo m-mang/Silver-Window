@@ -60,7 +60,9 @@ Toggling `Show Example Box` displays a draggable text box that will automaticall
 *This example shows three clicks/button presses from the player.*
 
 - **Show Example Box** - Shows an example box that can be dragged.
-- **End/Start Picture** - Connection points for picture nodes. `Start Picture` means the picture will be displayed at the same time as the text box, `End Picture` means the picture will be ended *before* the text box is displayed.
+- **End/Start Picture** - Connection points for picture nodes. `Start Picture` means the picture will be displayed at the same time as the text box, `End Picture` means the picture will be ended *before* the text box is displayed. Multiple picture nodes can be connected to the same dialogue node.
+
+    Picture nodes need to have a *start* connection, but the *end* connection can be left blank. In this scenario, the pictures will be ended when the script finishes.
 
 ### Picture Node
 
@@ -79,6 +81,8 @@ Compared to the dialogue node, the picture node is fairly straightforward. Click
 (*Note: Functionality for resizing images within the visual editor actually exists within the code, but it's been disabled because it messes with the 'reveal' effect the images have when shrinking/expanding. If you want, you can turn it back on by editing the* `picture_node.tscn` *file.*)
 
 `Center X` locks the image's x-coordinate to the center of the screen. `Show Example Box` shows/hides the draggable image box.
+
+See dialogue node options for connecting picture nodes.
 
 ### Saving and Loading
 
