@@ -21,6 +21,7 @@ There are two types of GraphNodes in the visual editor: dialogue nodes and pictu
 For example, the above gif looks like this in the visual editor:
 
 ![hello-world gif in the editor](screenshots/hello-world-visual-editor.png)
+
 *The `hello-world-screenshot.json` file is included in the JSON folder.*
 
 You'll notice that there are three dialogue nodes in the file, even though only one text box is displayed in the result. When the text field is left blank, the text box is hidden, but still requires an input from the user to move the script forward. This can be useful when you don't want everything to appear or disappear at the same time.
@@ -52,6 +53,9 @@ Toggling `Show Example Box` displays a draggable text box that will automaticall
 - **Frame Presets** - `Save` button saves the current frame position, frame size, speaker name and speaker position to a list which can then be selected as a preset. This is useful if you have an image with multiple people in it who are talking back and forth, as you don't have to redo the frame for every new text box. The `remove` button removes a preset from the list.
 - **Paired Image** - `Open` adds an image that is tied to the text box. It will appear with the text box and go away when the box is dismissed. Useful for character portraits. The `auto-position` option puts the image on the left, right, top-left or top-right of the text box. The `clear` button removes the paired image. `Preview` shows/hides the preview image in the node.
 - **Text** - The text to be displayed in the text box. BBCode tags are supported. By default, the box will automatically adjust to fit the width of the text. If you want a new line, push enter to break manually. The `Center X` option locks the box's x-coordinate to the center of the screen.
+
+    Leaving the text field blank will make an invisible text box that still requires an input from the player to advance the script.
+
 - **New Box and Wipe** - `New Box` determines whether the text box is dismissed when the user advances the text. If disabled, the box will wipe itself clean before displaying the next text, or add the text to the next line depending on the `wipe` setting.
 
 ![No new box example](screenshots/no-new-box-example.png)
