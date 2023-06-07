@@ -96,6 +96,8 @@ To actually run the JSON file you created, first open the `StaticData.gd` file l
 
 by replacing `hello-world-screenshot.json` with the name of your file. (Alternatively right-click your file in the Godot FileSystem panel and select 'Copy Path', then paste that in.) Then either run `main1.tscn` or click the play button.
 
+To advance the script, use left-click or spacebar.
+
 ## Customization
 
 Literally everything in the project can be customized. The background, the fonts, the box colors, the border width, etc. Almost everything is made with Styleboxes, so look into the Godot documentation on them if you want to know more about what you can change.
