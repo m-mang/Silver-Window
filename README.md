@@ -57,6 +57,7 @@ Toggling `Show Example Box` displays a draggable text box that will automaticall
 ![No new box example](screenshots/no-new-box-example.png)
 
 ![No new box gif](screenshots/no-new-box-example.gif)
+
 *This example shows three clicks/button presses from the player.*
 
 - **Show Example Box** - Shows an example box that can be dragged.
