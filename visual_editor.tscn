@@ -26,6 +26,10 @@ grow_horizontal = 2
 theme_override_constants/separation = 20
 metadata/_edit_group_ = true
 
+[node name="FullScreenToggle" type="CheckButton" parent="HBoxContainer"]
+layout_mode = 2
+text = "Fullscreen"
+
 [node name="DialogueNodeButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "New Dialogue Node"
@@ -109,6 +113,7 @@ dialog_text = "No dialogue connections."
 
 [connection signal="connection_request" from="." to="." method="_on_connection_request"]
 [connection signal="disconnection_request" from="." to="." method="_on_disconnection_request"]
+[connection signal="toggled" from="HBoxContainer/FullScreenToggle" to="." method="_on_full_screen_toggle_toggled"]
 [connection signal="pressed" from="HBoxContainer/DialogueNodeButton" to="." method="_on_dialogue_node_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/PictureNodeButton" to="." method="_on_picture_node_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/RunButton" to="." method="_on_run_button_pressed"]

@@ -22,7 +22,7 @@ var frame_preset_id = 1
 func _ready():
 	# This is recommended for some reason, idk why.
 	OS.low_processor_usage_mode = true
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+#	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 
 func clear_nodes():
@@ -370,6 +370,7 @@ func _on_run_button_pressed():
 						"type": type,
 						"new": new_box,
 						"name": speaker_name,
+						"speaker option": speaker_option,
 						"text": text,
 						"width": width,
 						"auto_width": auto_width,
@@ -872,3 +873,10 @@ func _on_dialogue_node_instance_frame_preset_removed(preset_id):
 			FramePresets.remove_item(FramePresets.get_item_index(preset_id))
 			FramePresets.select(0)
 			FramePresets.emit_signal("item_selected", 0)
+
+
+func _on_full_screen_toggle_toggled(button_pressed):
+	if button_pressed:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
